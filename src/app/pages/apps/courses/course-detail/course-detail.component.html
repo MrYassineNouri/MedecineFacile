@@ -1,0 +1,14 @@
+<mat-card *ngFor="let course of courses" class="m-t-10">
+  <mat-card-title>{{ course.title }}</mat-card-title>
+  <mat-card-actions class="d-flex justify-content-between">
+    <!-- Open PDF button -->
+    <button type="button" mat-flat-button color="primary" (click)="openPDF(course)">
+      Open PDF
+    </button>
+
+    <!-- Delete button -->
+    <button type="button" mat-icon-button color="warn" (click)="deleteCourse(course)">
+      <mat-icon>delete</mat-icon> <!-- use Angular Material icon instead of i-tabler -->
+    </button>
+  </mat-card-actions>
+</mat-card>

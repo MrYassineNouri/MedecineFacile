@@ -1,0 +1,47 @@
+<mat-card class="course-app cardWithShadow">
+  <mat-card-content class="p-24">
+    <div class="row align-items-center justify-content-between g-3">
+      <!-- Search -->
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="w-100 hide-hint search-field">
+          <mat-label>Search Speciality</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Type to filter..." />
+          <mat-icon matSuffix><i-tabler name="search" class="icon-20"></i-tabler></mat-icon>
+        </mat-form-field>
+      </div>
+
+      <!-- Add Speciality -->
+      <div class="col-lg-3 col-md-4 col-sm-12 text-end">
+        <button mat-flat-button (click)="openDialog('AddSpeciality')" color="primary" class="add-btn">
+          + Add Speciality
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<!-- Speciality Cards -->
+<div class="row g-4 speciality-grid">
+  <div class="col-sm-6 col-lg-4" *ngFor="let spec of filteredSpecialities">
+    <mat-card class="speciality-card cardWithShadow">
+      <mat-card-header class="speciality-header">
+        <mat-card-title>{{ spec.title }}</mat-card-title>
+        <span class="course-count">
+          <i-tabler name="book" class="icon-16"></i-tabler>
+          {{ spec.courses?.length || 0 }} Courses
+        </span>
+      </mat-card-header>
+
+      <mat-card-content class="speciality-content">
+        <p>{{ spec.description || 'No description available.' }}</p>
+      </mat-card-content>
+
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <a mat-stroked-button color="primary" [routerLink]="['/apps/courses/coursesdetail/', spec._id]">
+  View Courses
+</a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
