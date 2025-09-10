@@ -19,8 +19,11 @@ export class AppCoursesComponent implements OnInit {
     this.loadSpecialities();
   }
 
+<<<<<<< HEAD
   
 /*load = getall?*/
+=======
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
   loadSpecialities(): void {
     this.courseService.getSpecialities().subscribe({
       next: (data) => {

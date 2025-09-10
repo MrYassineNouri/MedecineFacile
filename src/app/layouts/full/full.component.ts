@@ -140,7 +140,11 @@ export class FullComponent implements OnInit {
     {
       id: 8,
       img: '/assets/images/svgs/icon-dd-application.svg',
+<<<<<<< HEAD
       title: 'Speciality',
+=======
+      title: 'Courses',
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
       subtitle: 'Create new course',
       link: '/apps/courses',
     },

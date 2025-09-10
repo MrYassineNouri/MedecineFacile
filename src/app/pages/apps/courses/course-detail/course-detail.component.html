@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <mat-card *ngFor="let course of courses" class="m-t-10">
   <mat-card-title>{{ course.title }}</mat-card-title>
   <mat-card-actions class="d-flex justify-content-between">
@@ -12,3 +13,27 @@
     </button>
   </mat-card-actions>
 </mat-card>
+=======
+
+<mat-card>
+  <mat-card-title>Courses</mat-card-title>
+  <mat-card-actions class="d-flex justify-content-between">
+    <button mat-flat-button (click)="openDialog('AddCourse')" color="primary">
+      Add Course
+    </button>
+    <button mat-stroked-button color="accent" (click)="goBack()">
+      ← Back to Specialities
+    </button>
+  </mat-card-actions>
+</mat-card>
+<!--
+<mat-card *ngFor="let course of courses" class="m-t-10">
+  <mat-card-title>{{ course.title }}</mat-card-title>
+  <mat-card-actions class="d-flex justify-content-between">
+    <button mat-button (click)="openPDF(course)">Open PDF</button>
+    <button mat-icon-button color="warn" (click)="deleteCourse(course)">
+      <i-tabler name="trash" class="icon-18"></i-tabler>
+    </button>
+  </mat-card-actions>
+</mat-card>-->
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22

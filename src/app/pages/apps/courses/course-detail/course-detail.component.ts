@@ -5,17 +5,28 @@ import { CourseService } from '../course.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AppContactDialogContentComponent } from '../../contact/contact.component';
 
+<<<<<<< HEAD
 
 @Component({
   selector: 'app-course-detail',
   templateUrl: './course-detail.component.html',
   styleUrls: ['./course-detail.component.scss'],
 
+=======
+@Component({
+  selector: 'app-course-detail',
+  templateUrl: './course-detail.component.html',
+  styleUrls: ['./course-detail.component.scss']
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
 })
 export class AppCourseDetailComponent implements OnInit {
   specialityId!: string;
   courses: course[] = [];
+<<<<<<< HEAD
   speciality: import("../speciality").speciality[];
+=======
+  speciality: import("c:/Users/pc_MSI/Downloads/frontMedcine-main/frontMedcine-main/src/app/pages/apps/courses/speciality").speciality[];
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
   selectedSpecialityId: any;
 
   constructor(
@@ -32,7 +43,11 @@ export class AppCourseDetailComponent implements OnInit {
       console.log('Loaded specialities:', specialities); // Add this
       // Use route param if exists, otherwise first speciality
       this.selectedSpecialityId = this.selectedSpecialityId || (specialities.length > 0 ? specialities[0]._id : undefined);
+<<<<<<< HEAD
       /*console.log('Set selectedSpecialityId to:', this.selectedSpecialityId); // Add this*/
+=======
+      console.log('Set selectedSpecialityId to:', this.selectedSpecialityId); // Add this
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
 
       if (this.selectedSpecialityId) {
         this.loadCourses();
@@ -43,7 +58,25 @@ export class AppCourseDetailComponent implements OnInit {
 }
 
 
+<<<<<<< HEAD
 
+=======
+ loadCourses(): void {
+    // Make sure you have selectedSpecialityId defined somewhere
+    if (!this.selectedSpecialityId) {
+      console.error('No speciality selected');
+      return;
+    }
+
+    // Call the service method to get courses for this speciality
+    this.courseService.getCoursesBySpeciality(this.selectedSpecialityId).subscribe({
+      next: (courses) => {
+        this.courses = courses; // store courses to display
+      },
+      error: (err) => console.error('Failed to load courses', err)
+    });
+  }
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
 
 
 
@@ -51,19 +84,33 @@ export class AppCourseDetailComponent implements OnInit {
     this.router.navigate(['/apps/courses']);
   }
 
+<<<<<<< HEAD
   openPDF(course: course): void {
     if (!course._id) return;
     this.courseService.openPdf(course._id).subscribe({
+=======
+  /*
+  openPDF(course: course): void {
+    if (!course._id) return;
+    this.courseService.downloadPdf(course._id).subscribe({
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
       next: (pdfBlob) => {
         const fileURL = URL.createObjectURL(pdfBlob);
         window.open(fileURL);
       },
       error: (err) => console.error('Failed to open PDF', err)
     });
+<<<<<<< HEAD
   }
 
   openDialog(action: string): void {
     /*console.log('Selected speciality ID:', this.selectedSpecialityId);*/
+=======
+  }*/
+
+  openDialog(action: string): void {
+    console.log('Selected speciality ID:', this.selectedSpecialityId);
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
     const dialogRef = this.dialog.open(AppContactDialogContentComponent, {
       data: { 
         action, 
@@ -79,12 +126,20 @@ export class AppCourseDetailComponent implements OnInit {
         formData.append('speciality', this.selectedSpecialityId); // Use the correct ID
         formData.append('pdf', result.data.file); // Match backend expectation
         // Debug: Check what's in the FormData
+<<<<<<< HEAD
         /*console.log('FormData contents:');*/
         formData.forEach((value, key) => {
           /*console.log(key, value);*/
         });
         // Simple field checking
         /*
+=======
+        console.log('FormData contents:');
+        formData.forEach((value, key) => {
+          console.log(key, value);
+        });
+        // Simple field checking
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
         const fields = ['title', 'description', 'speciality', 'pdf'];
         console.log('FormData contents:');
         fields.forEach(field => {
@@ -95,7 +150,11 @@ export class AppCourseDetailComponent implements OnInit {
             console.log('PDF File details:', value.name, value.size, value.type);
           }
         });
+<<<<<<< HEAD
 */
+=======
+
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
         this.courseService.addCourse(formData).subscribe({
           next: (savedCourse) => {
             this.courses.unshift(savedCourse);
@@ -107,6 +166,7 @@ export class AppCourseDetailComponent implements OnInit {
     });
   }
 
+<<<<<<< HEAD
   loadCourses() {
   if (!this.selectedSpecialityId) return;
 
@@ -129,4 +189,16 @@ export class AppCourseDetailComponent implements OnInit {
       });
     }
   }
+=======
+/*
+  deleteCourse(course: course): void {
+    if (!course._id) return;
+    if (confirm(`Are you sure you want to delete "${course.title}"?`)) {
+      this.courseService.deleteCourse(course._id).subscribe({
+        next: () => this.courses = this.courses.filter(c => c._id !== course._id),
+        error: (err) => console.error('Failed to delete course', err)
+      });
+    }
+  }*/
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
 }

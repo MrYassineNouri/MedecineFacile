@@ -14,7 +14,10 @@ export class CourseService {
 
   private getAuthHeaders(): HttpHeaders {
     const token = localStorage.getItem('token'); // token from login
+<<<<<<< HEAD
     console.log(localStorage.getItem('token'));
+=======
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
@@ -52,6 +55,7 @@ export class CourseService {
       }
     );
   }
+<<<<<<< HEAD
 
   //delete course
    deleteCourse(courseId: string): Observable<void> {
@@ -64,4 +68,6 @@ export class CourseService {
   openPdf(courseId: string): Observable<Blob> {
     return this.http.get(`${this.apiUrl}/pdf/${courseId}`, { responseType: 'blob' });
   }
+=======
+>>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
 }
