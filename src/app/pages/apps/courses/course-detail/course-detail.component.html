@@ -1,39 +1,47 @@
-<<<<<<< HEAD
-<mat-card *ngFor="let course of courses" class="m-t-10">
-  <mat-card-title>{{ course.title }}</mat-card-title>
-  <mat-card-actions class="d-flex justify-content-between">
+<mat-card class="course-app cardWithShadow">
+  <mat-card-content class="p-24">
+    <div class="row align-items-center justify-content-between g-3">
+      <!-- Search -->
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <mat-form-field appearance="outline" class="w-100 hide-hint search-field">
+          <mat-label>Search Course</mat-label>
+          <input matInput (keyup)="applyCourseFilter($event)" placeholder="Type to filter..." />
+          <mat-icon matSuffix><i-tabler name="search" class="icon-20"></i-tabler></mat-icon>
+        </mat-form-field>
+      </div>
+
+      <!-- Add Course -->
+      <div class="col-lg-3 col-md-4 col-sm-12 text-end">
+      <button mat-flat-button color="primary" (click)="addCourse()">
+    Add Course
+  </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<!-- Courses Cards -->
+<div class="row g-12 course-grid">
+  <div class="col-sm-6 col-lg-4" *ngFor="let course of filteredCourses">
+    <mat-card class="speciality-card cardWithShadow">
+      <mat-card-header class="speciality-header">
+        <mat-card-title>{{ course.title }}</mat-card-title>
+      </mat-card-header>
+       <mat-divider></mat-divider>
+      <mat-card-actions class="d-flex justify-content-between">
     <!-- Open PDF button -->
     <button type="button" mat-flat-button color="primary" (click)="openPDF(course)">
       Open PDF
     </button>
-
+ <!-- Download PDF button -->
+      <button type="button" mat-flat-button color="accent" class="me-2" (click)="downloadPDF(course)">
+        Download
+      </button>
     <!-- Delete button -->
     <button type="button" mat-icon-button color="warn" (click)="deleteCourse(course)">
       <mat-icon>delete</mat-icon> <!-- use Angular Material icon instead of i-tabler -->
     </button>
   </mat-card-actions>
-</mat-card>
-=======
-
-<mat-card>
-  <mat-card-title>Courses</mat-card-title>
-  <mat-card-actions class="d-flex justify-content-between">
-    <button mat-flat-button (click)="openDialog('AddCourse')" color="primary">
-      Add Course
-    </button>
-    <button mat-stroked-button color="accent" (click)="goBack()">
-      ← Back to Specialities
-    </button>
-  </mat-card-actions>
-</mat-card>
-<!--
-<mat-card *ngFor="let course of courses" class="m-t-10">
-  <mat-card-title>{{ course.title }}</mat-card-title>
-  <mat-card-actions class="d-flex justify-content-between">
-    <button mat-button (click)="openPDF(course)">Open PDF</button>
-    <button mat-icon-button color="warn" (click)="deleteCourse(course)">
-      <i-tabler name="trash" class="icon-18"></i-tabler>
-    </button>
-  </mat-card-actions>
-</mat-card>-->
->>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
+    </mat-card>
+  </div>
+</div>

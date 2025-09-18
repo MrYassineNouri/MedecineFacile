@@ -115,11 +115,7 @@ export class AppContactDialogContentComponent {
       const file = input.files[0];
       if (file && file.type === 'application/pdf') {
         this.local_data.file = file;
-<<<<<<< HEAD
         /*console.log('File selected:', file.name, file.size, file.type);*/
-=======
-        console.log('File selected:', file.name, file.size, file.type);
->>>>>>> 9ece8ba5b8089bc7a8d4a00a73c1f838c89c4b22
       } else {
         alert('Please select a valid PDF file.');
         // Reset the file input

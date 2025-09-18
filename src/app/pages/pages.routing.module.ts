@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { StarterComponent } from './starter/starter.component';
+import { AppBoxedLoginComponent } from './authentication/boxed-login/boxed-login.component'; // adjust the path
 
 export const PagesRoutes: Routes = [
   {
     path: '',
-    component: StarterComponent,
+    component: AppBoxedLoginComponent,
     data: {
-      title: 'Starter Page',
+      title: 'Login',
     },
   },
 ];

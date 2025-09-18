@@ -19,6 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //Import Layouts
 import { FullComponent } from './layouts/full/full.component';
 import { BlankComponent } from './layouts/blank/blank.component';
+import { AppBoxedLoginComponent } from '../app/pages/authentication/boxed-login/boxed-login.component';
+
 
 import { FilterPipe } from './pipe/filter.pipe';
 
@@ -37,6 +39,7 @@ export function HttpLoaderFactory(http: HttpClient): any {
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+        AppBoxedLoginComponent, 
     ReactiveFormsModule,
     MaterialModule,
     TablerIconsModule.pick(TablerIcons),
